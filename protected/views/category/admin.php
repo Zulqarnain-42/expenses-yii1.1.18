@@ -14,17 +14,6 @@
 <!-- Search and Import Controls -->
 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 gap-4">
 
-    <!-- Search Box -->
-    <form method="get" action="<?php echo $this->createUrl('index'); ?>" class="w-full sm:w-1/3">
-        <input 
-            type="text" 
-            name="search" 
-            placeholder="Search categories..." 
-            value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>"
-            class="w-full px-4 py-2 rounded border border-gray-600 bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        />
-    </form>
-
     <!-- Import CSV Button -->
     <?php echo CHtml::link('Export CSV', ['category/export'], [
         'class' => 'inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded shadow whitespace-nowrap'
@@ -42,10 +31,18 @@
     'pager' => array(
         'cssFile' => false,
         'header' => false,
-        'htmlOptions' => ['class' => 'inline-flex'],
-        'selectedPageCssClass' => 'bg-gray-700 text-white rounded px-3 py-1',
+        'htmlOptions' => ['class' => 'flex justify-center items-center space-x-2'],
+        'selectedPageCssClass' => 'bg-blue-600 text-white font-semibold px-3 py-1 rounded shadow',
+        'internalPageCssClass' => 'bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition-all duration-200 cursor-pointer',
+        'firstPageLabel' => '« First',
+        'lastPageLabel' => 'Last »',
+        'nextPageLabel' => '›',
+        'prevPageLabel' => '‹',
+        'firstPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'lastPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'nextPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'previousPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
         'hiddenPageCssClass' => 'hidden',
-        'internalPageCssClass' => 'px-3 py-1 rounded hover:bg-gray-800 cursor-pointer',
     ),
     'columns' => array(
         array(
@@ -78,6 +75,7 @@
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2'],
         ),
+		
         array(
             'class' => 'CButtonColumn',
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900'],

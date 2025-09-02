@@ -17,14 +17,22 @@
     'cssFile' => false,
     'itemsCssClass' => 'min-w-full divide-y divide-gray-700 table-auto text-sm text-gray-300 bg-black',
     'pagerCssClass' => 'mt-4 flex justify-center space-x-2',
-    'pager' => [
+    'pager' => array(
         'cssFile' => false,
         'header' => false,
-        'htmlOptions' => ['class' => 'inline-flex'],
-        'selectedPageCssClass' => 'bg-gray-700 text-white rounded px-3 py-1',
+        'htmlOptions' => ['class' => 'flex justify-center items-center space-x-2'],
+        'selectedPageCssClass' => 'bg-blue-600 text-white font-semibold px-3 py-1 rounded shadow',
+        'internalPageCssClass' => 'bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition-all duration-200 cursor-pointer',
+        'firstPageLabel' => '« First',
+        'lastPageLabel' => 'Last »',
+        'nextPageLabel' => '›',
+        'prevPageLabel' => '‹',
+        'firstPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'lastPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'nextPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'previousPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
         'hiddenPageCssClass' => 'hidden',
-        'internalPageCssClass' => 'px-3 py-1 rounded hover:bg-gray-800 cursor-pointer',
-    ],
+    ),
     'columns' => [
         [
             'name' => 'id',

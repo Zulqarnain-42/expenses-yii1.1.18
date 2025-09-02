@@ -9,7 +9,7 @@
  * @property string $amount
  * @property string $description
  * @property string $date
- * @property enum $status
+ * @property string $status
  * @property string $admin_comment
  * @property string $created_at
  * @property string $updated_at
@@ -17,6 +17,9 @@
  */
 class Expenses extends CActiveRecord
 {
+	public $date_from;
+	public $date_to;
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -34,7 +37,6 @@ class Expenses extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('category_id, amount, date', 'required'),
-			array('status', 'numerical', 'integerOnly'=>true),
 			array('amount', 'length', 'max'=>10),
 			array('description, admin_comment, created_at, updated_at', 'safe'),
 			// The following rule is used by search().
@@ -100,10 +102,16 @@ class Expenses extends CActiveRecord
 		$criteria->compare('admin_comment',$this->admin_comment,true);
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
-		if (!Yii::app()->user->role !== 'admin') {
-        	$criteria->compare('user_id', Yii::app()->user->id);
-    	}
 
+		if (!empty($this->date_from)) {
+			$criteria->addCondition("date >= :date_from");
+			$criteria->params[':date_from'] = $this->date_from;
+		}
+
+		if (!empty($this->date_to)) {
+			$criteria->addCondition("date <= :date_to");
+			$criteria->params[':date_to'] = $this->date_to;
+		}
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

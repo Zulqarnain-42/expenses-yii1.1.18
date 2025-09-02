@@ -50,7 +50,7 @@
             ),
             array(
                 'name' => 'status',
-                'value' => $model->status ? '✅ Yes' : '❌ No',
+                'value' => $model->status,
                 'template' => '<tr class="{class}">
                     <th class="text-left px-6 py-3 font-medium text-gray-400 bg-gray-800">{label}</th>
                     <td class="px-6 py-3">{value}</td>

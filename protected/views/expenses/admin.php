@@ -23,59 +23,93 @@
 <?php $this->widget('zii.widgets.grid.CGridView', array(
     'id' => 'expenses-grid',
     'dataProvider' => $model->search(),
-	    'filter' => null,  // disable default filters to avoid confusion
+    'filter' => $model,  // enable filters but only show for category below
     'cssFile' => false,
     'itemsCssClass' => 'min-w-full divide-y divide-gray-700 table-auto text-sm text-gray-300 bg-black rounded',
     'summaryCssClass' => 'px-4 py-2 text-gray-400',
-    'pagerCssClass' => 'mt-4 flex justify-center space-x-2',
+    'pagerCssClass' => 'mt-4',
     'pager' => array(
         'cssFile' => false,
         'header' => false,
-        'htmlOptions' => ['class' => 'inline-flex'],
-        'selectedPageCssClass' => 'bg-gray-700 text-white rounded px-3 py-1',
+        'htmlOptions' => ['class' => 'flex justify-center items-center space-x-2'],
+        'selectedPageCssClass' => 'bg-blue-600 text-white font-semibold px-3 py-1 rounded shadow',
+        'internalPageCssClass' => 'bg-gray-800 text-white px-3 py-1 rounded hover:bg-gray-700 transition-all duration-200 cursor-pointer',
+        'firstPageLabel' => '« First',
+        'lastPageLabel' => 'Last »',
+        'nextPageLabel' => '›',
+        'prevPageLabel' => '‹',
+        'firstPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'lastPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'nextPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
+        'previousPageCssClass' => 'bg-gray-700 text-white px-3 py-1 rounded hover:bg-gray-600 transition-all duration-200 cursor-pointer',
         'hiddenPageCssClass' => 'hidden',
-        'internalPageCssClass' => 'px-3 py-1 rounded hover:bg-gray-800 cursor-pointer',
     ),
     'columns' => array(
         array(
             'name' => 'id',
+            'filter' => false, // Disable filter for ID column
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
         ),
         array(
-    		'header' => 'Category',
-    		'value' => function($data) {
-        		return isset($data->category) ? CHtml::encode($data->category->name) : '<span class="text-red-400">Not set</span>';
-    		},
-    		'type' => 'raw', // allow HTML output
-    		'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
-    		'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
-		),
-
+            'name' => 'category_id', // Assuming 'category_id' is foreign key in expenses table
+            'header' => 'Category',
+            'value' => function ($data) {
+                return isset($data->category) ? CHtml::encode($data->category->name) : '<span class="text-red-400">Not set</span>';
+            },
+            'type' => 'raw',
+            'filter' => CHtml::dropDownList(
+                'Expenses[category_id]',
+                $model->category_id,
+                CHtml::listData(Category::model()->findAll(['order' => 'name ASC']), 'id', 'name'),
+                [
+                    'empty' => 'All Categories',
+                    'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-1 rounded focus:outline-none focus:ring focus:ring-indigo-500 text-sm'
+                ]
+            ),
+            'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
+            'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
+        ),
         array(
             'name' => 'amount',
+            'filter' => false, // Disable filter for amount
             'header' => 'Amount',
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap break-all'],
         ),
         array(
             'name' => 'description',
+            'filter' => false, // Disable filter for description
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2'],
         ),
         array(
             'name' => 'date',
+            'filter' => false, // Disable filter for date
             'header' => 'Date',
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
         ),
+		array(
+			'name' => 'user_id',
+			'header' => 'User',
+			'value' => function ($data) {
+				return isset($data->user) ? CHtml::encode($data->user->username) : '<span class="text-red-400">No User</span>';
+			},
+			'type' => 'raw', // allow HTML output (for fallback message)
+			'filter' => false, // change to dropdown if you want filtering
+			'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
+			'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
+		),
+
         array(
             'name' => 'status',
+            'filter' => false, // Disable filter for status
             'header' => 'Status',
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
-            'value' => function($data) {
-                return $data->status ? 'Approved' : 'Pending';
+            'value' => function ($data) {
+                return $data->status;
             },
         ),
         array(
@@ -99,3 +133,4 @@
         ),
     ),
 )); ?>
+

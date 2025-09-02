@@ -39,26 +39,7 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 
-		'clientScript' => array(
-        	'scriptMap' => array(
-            	// Block jQuery and other JS libraries
-            	'jquery.js' => false,
-            	'jquery.min.js' => false,
-            	'jquery-ui.js' => false,
-            	'jquery-ui.min.js' => false,
-            	'jquery.yiigridview.js' => false,
-            	'jquery.ba-bbq.min.js' => false,
-            	'jquery.ajaxqueue.js' => false,
-
-            	// Block all Yii CSS files
-            	'pager.css' => false,
-            	'gridview/styles.css' => false,
-            	'screen.css' => false,
-            	'form.css' => false,
-            	'main.css' => false,
-            	'print.css' => false,
-        	),
-    	),
+		
 
 		// uncomment the following to enable URLs in path-format
 		/*

@@ -53,14 +53,6 @@ class ExpensesController extends Controller
 	{
     	$model = $this->loadModel($id);
 
-    	// Check if the logged-in user is admin
-    	if (!Yii::app()->user->isAdmin) {
-        	// If not admin, check if this record belongs to the user
-        	if ($model->user_id != Yii::app()->user->id) {
-            	throw new CHttpException(403, 'You are not authorized to view this record.');
-        	}
-    	}
-
     	$this->render('view', array(
         	'model' => $model,
     	));
@@ -74,11 +66,6 @@ class ExpensesController extends Controller
 
 		// Define criteria for fetching expenses
 		$criteria = new CDbCriteria();
-
-		// If user is not admin, filter expenses by logged-in user ID
-		if (!Yii::app()->user->isAdmin) {
-			$criteria->compare('user_id', Yii::app()->user->id);
-		}
 
 		// Fetch expenses according to criteria, with eager loading of category to reduce queries
 		$criteria->with = ['category'];
@@ -105,7 +92,7 @@ class ExpensesController extends Controller
 				$expense->amount,
 				$expense->description,
 				$expense->date,
-				$expense->status ? 'Approved' : 'Pending',
+				$expense->status,
 			]);
 		}
 
@@ -131,7 +118,6 @@ class ExpensesController extends Controller
 			$model->attributes=$_POST['Expenses'];
 			$model->user_id = Yii::app()->user->id; // Set the user ID
 
-			print_r($model->attributes); exit;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -152,16 +138,13 @@ class ExpensesController extends Controller
 		$model = $this->loadModel($id);
 		$listCategories = CHtml::listData(Category::model()->findAll(), 'id', 'name');
 
-		// Access check: if user is not admin and does not own this expense, deny access
-		if (!Yii::app()->user->isAdmin && $model->user_id != Yii::app()->user->id) {
-			throw new CHttpException(403, 'You are not authorized to update this record.');
-		}
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if (isset($_POST['Expenses'])) {
 			$model->attributes = $_POST['Expenses'];
+			
+			$model->status = $_POST['Expenses']['status'];
 
 			// Only set user_id if you want to allow users to change ownership,
 			// typically you wouldn’t reset user_id on update.
