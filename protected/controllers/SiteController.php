@@ -77,6 +77,7 @@ class SiteController extends Controller
 	 */
 	public function actionLogin()
 	{
+		$this->layout = false;
 		$model=new LoginForm;
 
 		// if it is ajax validation request
@@ -96,6 +97,11 @@ class SiteController extends Controller
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
+	}
+
+	public function actionDashboard() {
+    	$this->layout = '//layouts/dashboard'; // or any other layout path
+		$this->render('dashboard');
 	}
 
 	/**

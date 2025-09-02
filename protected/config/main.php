@@ -20,14 +20,14 @@ return array(
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'db0510',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
-		*/
+		
 	),
 
 	// application components
@@ -35,8 +35,30 @@ return array(
 
 		'user'=>array(
 			// enable cookie-based authentication
+			'class' => 'WebUser', // 👈 Tells Yii to use your extended class
 			'allowAutoLogin'=>true,
 		),
+
+		'clientScript' => array(
+        	'scriptMap' => array(
+            	// Block jQuery and other JS libraries
+            	'jquery.js' => false,
+            	'jquery.min.js' => false,
+            	'jquery-ui.js' => false,
+            	'jquery-ui.min.js' => false,
+            	'jquery.yiigridview.js' => false,
+            	'jquery.ba-bbq.min.js' => false,
+            	'jquery.ajaxqueue.js' => false,
+
+            	// Block all Yii CSS files
+            	'pager.css' => false,
+            	'gridview/styles.css' => false,
+            	'screen.css' => false,
+            	'form.css' => false,
+            	'main.css' => false,
+            	'print.css' => false,
+        	),
+    	),
 
 		// uncomment the following to enable URLs in path-format
 		/*

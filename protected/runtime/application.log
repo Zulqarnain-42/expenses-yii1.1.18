@@ -1,0 +1,971 @@
+2025/09/01 08:21:45 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "gii". in C:\yii-1.1.18\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=gii
+---
+2025/09/01 08:58:53 [error] [php] include(User.php): failed to open stream: No such file or directory (C:\yii-1.1.18\framework\YiiBase.php:432)
+Stack trace:
+#0 E:\expenses-yii1.1.18\protected\controllers\SiteController.php(103): spl_autoload_call()
+#1 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): SiteController->actionRegister()
+#2 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\yii-1.1.18\framework\web\CController.php(286): SiteController->runAction()
+#4 C:\yii-1.1.18\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 C:\yii-1.1.18\framework\web\CWebApplication.php(282): SiteController->run()
+#6 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#8 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in E:\expenses-yii1.1.18\protected\controllers\SiteController.php (103)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/01 08:59:11 [error] [exception.CException] CException: Property "Users.password" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 C:\yii-1.1.18\framework\web\helpers\CHtml.php(2747): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\helpers\CHtml.php(2470): CHtml::resolveValue()
+#3 C:\yii-1.1.18\framework\web\helpers\CHtml.php(1814): CHtml::activeInputField()
+#4 C:\yii-1.1.18\framework\web\widgets\CActiveForm.php(838): CHtml::activePasswordField()
+#5 E:\expenses-yii1.1.18\protected\views\site\register.php(35): CActiveForm->passwordField()
+#6 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#7 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#8 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#9 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#10 E:\expenses-yii1.1.18\protected\controllers\SiteController.php(121): CController->render()
+#11 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): SiteController->actionRegister()
+#12 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\yii-1.1.18\framework\web\CController.php(286): CController->runAction()
+#14 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#15 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#18 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=site/register
+---
+2025/09/01 10:07:22 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'category.slug'. The SQL statement executed was: INSERT INTO `category` (`status`, `name`, `slug`, `description`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in E:\expenses-yii1.1.18\protected\controllers\CategoryController.php (73)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/01 10:07:22 [error] [exception.CDbException] CDbException: CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'category.slug'. The SQL statement executed was: INSERT INTO `category` (`status`, `name`, `slug`, `description`) VALUES (:yp0, :yp1, :yp2, :yp3) in C:\yii-1.1.18\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(1083): CDbCommand->execute()
+#1 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(811): CActiveRecord->insert()
+#2 E:\expenses-yii1.1.18\protected\controllers\CategoryController.php(73): CActiveRecord->save()
+#3 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): CategoryController->actionCreate()
+#4 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#6 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#8 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#12 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#13 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#14 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#15 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=category/create
+HTTP_REFERER=http://localhost:8080/index.php?r=category/create
+---
+2025/09/01 10:13:56 [error] [php] include(Categories.php): failed to open stream: No such file or directory (C:\yii-1.1.18\framework\YiiBase.php:432)
+Stack trace:
+#0 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(66): spl_autoload_call()
+#1 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#2 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#4 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#5 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#6 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#7 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#9 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#10 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#11 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#13 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (66)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/01 10:14:53 [error] [php] Undefined variable: listCategories (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:24)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(18): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(79): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (24)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (18)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (79)
+2025/09/01 10:15:34 [error] [php] Undefined variable: listCategories (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:24)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(18): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(79): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (24)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (18)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (79)
+2025/09/01 10:17:11 [error] [php] Undefined variable: listCategories (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:24)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(18): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(80): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (24)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (18)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (80)
+2025/09/01 10:21:04 [error] [exception.Error] Error: Object of class CJuiDatePicker could not be converted to string in E:\expenses-yii1.1.18\protected\views\expenses\_form.php:43
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#1 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#2 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#3 E:\expenses-yii1.1.18\protected\views\expenses\create.php(18): CController->renderPartial()
+#4 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#5 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#6 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#7 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#8 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(80): CController->render()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=expenses/create
+---
+2025/09/01 10:25:00 [error] [php] Undefined variable: listCategories (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:24)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\update.php(21): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(104): ExpensesController->render()
+#7 unknown(0): ExpensesController->actionUpdate()
+#8 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/update&id=1
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (24)
+in E:\expenses-yii1.1.18\protected\views\expenses\update.php (21)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (104)
+2025/09/01 11:22:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'expensesyiiold.loginform' doesn't exist. The SQL statement executed was: SHOW FULL COLUMNS FROM `LoginForm`.
+in E:\expenses-yii1.1.18\protected\controllers\SiteController.php (80)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/01 11:22:34 [error] [exception.CDbException] CDbException: The table "LoginForm" for active record class "LoginForm" cannot be found in the database. in C:\yii-1.1.18\framework\db\ar\CActiveRecord.php:2390
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(413): CActiveRecordMetaData->__construct()
+#1 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#2 E:\expenses-yii1.1.18\protected\controllers\SiteController.php(80): CActiveRecord->__construct()
+#3 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#4 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\yii-1.1.18\framework\web\CController.php(286): CController->runAction()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=site/login
+---
+2025/09/01 11:36:20 [warning] [application] Failed to set unsafe attribute "repeat_password" of "Users".
+in E:\expenses-yii1.1.18\protected\controllers\UsersController.php (72)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/01 11:36:20 [error] [exception.CException] CException: Property "Users.password" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\controllers\UsersController.php(73): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): UsersController->actionCreate()
+#3 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#5 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#7 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#8 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#11 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#12 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=users/create
+HTTP_REFERER=http://localhost:8080/index.php?r=users/create
+---
+2025/09/01 11:36:54 [warning] [application] Failed to set unsafe attribute "repeat_password" of "Users".
+in E:\expenses-yii1.1.18\protected\controllers\UsersController.php (72)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/02 07:30:49 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "expense/admin". in C:\yii-1.1.18\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=expense/admin
+HTTP_REFERER=http://localhost:8080/index.php?r=category/admin
+---
+2025/09/02 07:59:35 [error] [exception.CException] CException: The "dataProvider" property cannot be empty. in C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php:123
+Stack trace:
+#0 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(339): CBaseListView->init()
+#1 C:\yii-1.1.18\framework\web\CBaseController.php(147): CGridView->init()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(181): CBaseController->createWidget()
+#3 E:\expenses-yii1.1.18\protected\views\users\admin.php(36): CBaseController->widget()
+#4 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#5 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#6 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#7 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#8 E:\expenses-yii1.1.18\protected\controllers\UsersController.php(144): CController->render()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): UsersController->actionAdmin()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=users/admin
+---
+2025/09/02 08:07:05 [warning] [application] Failed to set unsafe attribute "repeat_password" of "Users".
+in E:\expenses-yii1.1.18\protected\controllers\UsersController.php (72)
+in E:\expenses-yii1.1.18\index.php (13)
+2025/09/02 08:09:43 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\yii-1.1.18\framework\web\CController.php:1121
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly()
+#1 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#2 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#4 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#5 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#9 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=users/delete&id=1
+HTTP_REFERER=http://localhost:8080/index.php?r=users/admin
+---
+2025/09/02 08:31:43 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "import". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=category/import
+HTTP_REFERER=http://localhost:8080/index.php?r=category/admin
+---
+2025/09/02 08:34:06 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied()
+#1 C:\yii-1.1.18\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#2 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#3 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=category/import
+HTTP_REFERER=http://localhost:8080/index.php?r=category/admin
+---
+2025/09/02 08:34:28 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied()
+#1 C:\yii-1.1.18\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#2 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#3 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=category/import
+HTTP_REFERER=http://localhost:8080/index.php?r=category/admin
+---
+2025/09/02 08:35:01 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied()
+#1 C:\yii-1.1.18\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#2 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#3 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=category/import
+---
+2025/09/02 08:35:52 [error] [exception.CException] CException: CategoryController cannot find the requested view "import". in C:\yii-1.1.18\framework\web\CController.php:881
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#1 E:\expenses-yii1.1.18\protected\controllers\CategoryController.php(87): CController->render()
+#2 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): CategoryController->actionImport()
+#3 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#5 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#7 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#8 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#10 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#11 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#12 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#13 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#14 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=category/import
+---
+2025/09/02 08:48:40 [error] [exception.CHttpException.404] CHttpException: Unable to resolve the request "expense/create". in C:\yii-1.1.18\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#1 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#2 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=expense/create
+HTTP_REFERER=http://localhost:8080/index.php?r=expenses/admin
+---
+2025/09/02 08:53:38 [error] [exception.CHttpException.400] CHttpException: Your request is invalid. in C:\yii-1.1.18\framework\web\CController.php:1121
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterPostOnly()
+#1 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#2 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#4 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#5 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#7 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#9 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#11 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=expenses/delete&id=1
+HTTP_REFERER=http://localhost:8080/index.php?r=expenses/admin
+---
+2025/09/02 09:16:40 [error] [exception.CException] CException: Property "CWebUser.role" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CWebUser.php(146): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(57): CWebUser->__get()
+#2 [internal function]: ExpensesController->actionView()
+#3 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#4 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal()
+#5 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#7 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#8 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#9 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#10 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#12 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#13 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#14 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#15 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#16 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=expenses/view&id=1
+HTTP_REFERER=http://localhost:8080/index.php?r=expenses/admin
+---
+2025/09/02 11:43:15 [error] [php] Undefined variable: getStatusOptions (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:79)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(3): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(120): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (79)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (3)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (120)
+2025/09/02 11:46:15 [error] [php] Undefined variable: getStatusOptions (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:79)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(3): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(120): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (79)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (3)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (120)
+2025/09/02 11:46:17 [error] [php] Undefined variable: getStatusOptions (E:\expenses-yii1.1.18\protected\views\expenses\_form.php:79)
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\create.php(3): ExpensesController->renderPartial()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): ExpensesController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): ExpensesController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): ExpensesController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(120): ExpensesController->render()
+#7 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#8 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#9 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): ExpensesController->runAction()
+#10 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#11 C:\yii-1.1.18\framework\web\CController.php(1148): CAccessControlFilter->filter()
+#12 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): ExpensesController->filterAccessControl()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#14 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(265): ExpensesController->runActionWithFilters()
+#16 C:\yii-1.1.18\framework\web\CWebApplication.php(282): ExpensesController->run()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#19 E:\expenses-yii1.1.18\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=expenses/create
+in E:\expenses-yii1.1.18\protected\views\expenses\_form.php (79)
+in E:\expenses-yii1.1.18\protected\views\expenses\create.php (3)
+in E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php (120)
+2025/09/02 11:49:44 [error] [exception.CException] CException: Property "CWebUser.role" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CWebUser.php(146): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\_form.php(87): CWebUser->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 E:\expenses-yii1.1.18\protected\views\expenses\create.php(3): CController->renderPartial()
+#6 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#7 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#8 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#9 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#10 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(120): CController->render()
+#11 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#12 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#14 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#16 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#17 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#20 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#21 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=expenses/create
+---
+2025/09/02 11:52:20 [error] [exception.CException] CException: Property "CWebUser.role" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CWebUser.php(146): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\_form.php(87): CWebUser->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 E:\expenses-yii1.1.18\protected\views\expenses\create.php(3): CController->renderPartial()
+#6 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#7 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#8 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#9 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#10 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(120): CController->render()
+#11 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionCreate()
+#12 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#14 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#15 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#16 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#17 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#19 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#20 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#21 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#22 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#23 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=expenses/create
+---
+2025/09/02 11:58:19 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "user". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=expenses/user
+HTTP_REFERER=http://localhost:8080/index.php?r=site/dashboard
+---
+2025/09/02 11:59:06 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "user". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=expenses/user
+HTTP_REFERER=http://localhost:8080/index.php?r=site/dashboard
+---
+2025/09/02 12:00:19 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "user". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=expenses/user
+---
+2025/09/02 12:00:58 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "user". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=expenses/user
+---
+2025/09/02 12:01:00 [error] [exception.CHttpException.404] CHttpException: The system is unable to find the requested action "user". in C:\yii-1.1.18\framework\web\CController.php:486
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\CController.php(270): CController->missingAction()
+#1 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#2 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#3 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#4 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=expenses/user
+---
+2025/09/02 12:01:37 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied()
+#1 C:\yii-1.1.18\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#2 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#3 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+---
+2025/09/02 12:01:46 [error] [exception.CHttpException.403] CHttpException: You are not authorized to perform this action. in C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php:183
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CAccessControlFilter.php(145): CAccessControlFilter->accessDenied()
+#1 C:\yii-1.1.18\framework\web\filters\CFilter.php(38): CAccessControlFilter->preFilter()
+#2 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#3 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#4 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#7 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#8 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#10 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+HTTP_REFERER=http://localhost:8080/index.php?r=site/dashboard
+---
+2025/09/02 12:02:38 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(78): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\base\CComponent.php(624): CBaseController->{closure}()
+#3 C:\yii-1.1.18\framework\zii\widgets\grid\CDataColumn.php(142): CComponent->evaluateExpression()
+#4 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(231): CDataColumn->getDataCellContent()
+#5 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(154): CGridColumn->renderDataCellContent()
+#6 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(639): CGridColumn->renderDataCell()
+#7 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell()
+#8 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow()
+#9 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
+#10 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
+#11 [internal function]: CBaseListView->renderSection()
+#12 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#13 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(149): CBaseListView->renderContent()
+#14 C:\yii-1.1.18\framework\web\CBaseController.php(182): CBaseListView->run()
+#15 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(24): CBaseController->widget()
+#16 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#17 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#18 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#19 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#20 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(188): CController->render()
+#21 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionAdmin()
+#22 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#23 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#24 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#26 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#27 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#28 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#30 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#31 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#32 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+---
+2025/09/02 12:03:24 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(78): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\base\CComponent.php(624): CBaseController->{closure}()
+#3 C:\yii-1.1.18\framework\zii\widgets\grid\CDataColumn.php(142): CComponent->evaluateExpression()
+#4 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(231): CDataColumn->getDataCellContent()
+#5 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(154): CGridColumn->renderDataCellContent()
+#6 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(639): CGridColumn->renderDataCell()
+#7 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell()
+#8 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow()
+#9 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
+#10 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
+#11 [internal function]: CBaseListView->renderSection()
+#12 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#13 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(149): CBaseListView->renderContent()
+#14 C:\yii-1.1.18\framework\web\CBaseController.php(182): CBaseListView->run()
+#15 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(24): CBaseController->widget()
+#16 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#17 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#18 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#19 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#20 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(188): CController->render()
+#21 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionAdmin()
+#22 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#23 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#24 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#26 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#27 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#28 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#30 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#31 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#32 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+---
+2025/09/02 12:03:58 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(78): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\base\CComponent.php(624): CBaseController->{closure}()
+#3 C:\yii-1.1.18\framework\zii\widgets\grid\CDataColumn.php(142): CComponent->evaluateExpression()
+#4 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(231): CDataColumn->getDataCellContent()
+#5 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(154): CGridColumn->renderDataCellContent()
+#6 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(639): CGridColumn->renderDataCell()
+#7 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell()
+#8 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow()
+#9 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
+#10 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
+#11 [internal function]: CBaseListView->renderSection()
+#12 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#13 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(149): CBaseListView->renderContent()
+#14 C:\yii-1.1.18\framework\web\CBaseController.php(182): CBaseListView->run()
+#15 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(24): CBaseController->widget()
+#16 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#17 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#18 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#19 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#20 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(188): CController->render()
+#21 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionAdmin()
+#22 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#23 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#24 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#26 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#27 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#28 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#30 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#31 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#32 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+---
+2025/09/02 12:03:59 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(78): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\base\CComponent.php(624): CBaseController->{closure}()
+#3 C:\yii-1.1.18\framework\zii\widgets\grid\CDataColumn.php(142): CComponent->evaluateExpression()
+#4 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(231): CDataColumn->getDataCellContent()
+#5 C:\yii-1.1.18\framework\zii\widgets\grid\CGridColumn.php(154): CGridColumn->renderDataCellContent()
+#6 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(639): CGridColumn->renderDataCell()
+#7 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(623): CGridView->renderDataCell()
+#8 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(579): CGridView->renderTableRow()
+#9 C:\yii-1.1.18\framework\zii\widgets\grid\CGridView.php(489): CGridView->renderTableBody()
+#10 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(181): CGridView->renderItems()
+#11 [internal function]: CBaseListView->renderSection()
+#12 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(164): preg_replace_callback()
+#13 C:\yii-1.1.18\framework\zii\widgets\CBaseListView.php(149): CBaseListView->renderContent()
+#14 C:\yii-1.1.18\framework\web\CBaseController.php(182): CBaseListView->run()
+#15 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(24): CBaseController->widget()
+#16 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#17 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#18 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#19 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#20 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(188): CController->render()
+#21 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionAdmin()
+#22 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#23 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#24 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#25 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#26 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#27 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#28 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#29 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#30 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#31 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#32 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#33 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+---
+2025/09/02 12:04:59 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\view.php(53): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(55): CController->render()
+#7 [internal function]: ExpensesController->actionView()
+#8 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=expenses/view&id=1
+HTTP_REFERER=http://localhost:8080/index.php?r=expenses/admin
+---
+2025/09/02 12:05:03 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\view.php(53): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(55): CController->render()
+#7 [internal function]: ExpensesController->actionView()
+#8 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=expenses/view&id=1
+HTTP_REFERER=http://localhost:8080/index.php?r=expenses/admin
+---
+2025/09/02 12:05:51 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\view.php(53): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(55): CController->render()
+#7 [internal function]: ExpensesController->actionView()
+#8 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=expenses/view&id=1
+---
+2025/09/02 12:05:54 [error] [exception.CException] CException: Property "Expenses.approved" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\db\ar\CActiveRecord.php(145): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\views\expenses\view.php(53): CActiveRecord->__get()
+#2 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#4 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#5 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#6 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(55): CController->render()
+#7 [internal function]: ExpensesController->actionView()
+#8 C:\yii-1.1.18\framework\web\actions\CAction.php(109): ReflectionMethod->invokeArgs()
+#9 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal()
+#10 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#11 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#12 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#14 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#15 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#17 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#19 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#20 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#21 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=expenses/view&id=1
+---
+2025/09/02 12:13:07 [error] [exception.CException] CException: Property "WebUser.isAdmin" is not defined. in C:\yii-1.1.18\framework\base\CComponent.php:130
+Stack trace:
+#0 C:\yii-1.1.18\framework\web\auth\CWebUser.php(146): CComponent->__get()
+#1 E:\expenses-yii1.1.18\protected\models\Expenses.php(103): CWebUser->__get()
+#2 E:\expenses-yii1.1.18\protected\views\expenses\admin.php(25): Expenses->search()
+#3 C:\yii-1.1.18\framework\web\CBaseController.php(126): require('E:\\expenses-yii...')
+#4 C:\yii-1.1.18\framework\web\CBaseController.php(95): CBaseController->renderInternal()
+#5 C:\yii-1.1.18\framework\web\CController.php(872): CBaseController->renderFile()
+#6 C:\yii-1.1.18\framework\web\CController.php(785): CController->renderPartial()
+#7 E:\expenses-yii1.1.18\protected\controllers\ExpensesController.php(217): CController->render()
+#8 C:\yii-1.1.18\framework\web\actions\CInlineAction.php(49): ExpensesController->actionAdmin()
+#9 C:\yii-1.1.18\framework\web\CController.php(308): CInlineAction->runWithParams()
+#10 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(134): CController->runAction()
+#11 C:\yii-1.1.18\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 C:\yii-1.1.18\framework\web\CController.php(1148): CFilter->filter()
+#13 C:\yii-1.1.18\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl()
+#14 C:\yii-1.1.18\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#15 C:\yii-1.1.18\framework\web\CController.php(291): CFilterChain->run()
+#16 C:\yii-1.1.18\framework\web\CController.php(265): CController->runActionWithFilters()
+#17 C:\yii-1.1.18\framework\web\CWebApplication.php(282): CController->run()
+#18 C:\yii-1.1.18\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#19 C:\yii-1.1.18\framework\base\CApplication.php(185): CWebApplication->processRequest()
+#20 E:\expenses-yii1.1.18\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=expenses/admin
+HTTP_REFERER=http://localhost:8080/index.php?r=site/dashboard
+---
