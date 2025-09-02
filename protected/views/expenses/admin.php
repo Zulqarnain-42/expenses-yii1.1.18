@@ -18,32 +18,31 @@
         'class' => 'inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded shadow whitespace-nowrap'
     ]); ?>	
 </div>
-<?php echo CHtml::beginForm(); ?>
-<div class="flex gap-4 mb-4">
-  <!-- From Date -->
-  <div>
-    <label class="block text-sm text-gray-300 mb-1">From Date</label>
-    <?php echo CHtml::textField('Expenses[from_date]', $model->from_date, [
-      'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm',
-      'placeholder' => 'YYYY-MM-DD'
-    ]); ?>
-  </div>
 
-  <!-- To Date -->
-  <div>
-    <label class="block text-sm text-gray-300 mb-1">To Date</label>
-    <?php echo CHtml::textField('Expenses[to_date]', $model->to_date, [
-      'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm',
-      'placeholder' => 'YYYY-MM-DD'
-    ]); ?>
-  </div>
+<!-- ✅ Date Range Filter Form (AJAX enabled) -->
+<div class="flex flex-col sm:flex-row items-center gap-4 mb-6 bg-gray-900 p-4 rounded-lg shadow">
+    <?php echo CHtml::beginForm('', 'get', ['id' => 'date-filter-form', 'class' => 'flex flex-col sm:flex-row gap-4']); ?>
 
-  <!-- Filter Button -->
-  <div class="flex items-end">
-    <?php echo CHtml::submitButton('Filter', [
-      'class' => 'bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded',
-    ]); ?>
-  </div>
+        <?php echo CHtml::textField('Expenses[date_from]', $model->date_from, [
+            'placeholder' => 'From (YYYY-MM-DD)',
+            'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm w-44'
+        ]); ?>
+
+        <?php echo CHtml::textField('Expenses[date_to]', $model->date_to, [
+            'placeholder' => 'To (YYYY-MM-DD)',
+            'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm w-44'
+        ]); ?>
+
+        <?php echo CHtml::submitButton('Filter', [
+            'class' => 'bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded shadow'
+        ]); ?>
+
+        <button type="button" id="reset-filter" 
+            class="bg-gray-700 hover:bg-gray-800 text-white font-semibold px-5 py-2 rounded shadow">
+            Reset
+        </button>
+
+    <?php echo CHtml::endForm(); ?>
 </div>
 
 
@@ -162,4 +161,20 @@
     ),
 )); ?>
 
-<?php echo CHtml::endForm(); ?>
+
+<?php
+// ✅ JS for AJAX form binding
+Yii::app()->clientScript->registerScript('date-filter-ajax', "
+    $('#date-filter-form').on('submit', function(e) {
+        e.preventDefault();
+        $.fn.yiiGridView.update('expenses-grid', {
+            data: $(this).serialize()
+        });
+    });
+
+    $('#reset-filter').on('click', function() {
+        $('#date-filter-form')[0].reset();
+        $.fn.yiiGridView.update('expenses-grid', { data: {} });
+    });
+");
+?>

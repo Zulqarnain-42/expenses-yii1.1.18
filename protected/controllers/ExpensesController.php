@@ -192,9 +192,11 @@ class ExpensesController extends Controller
 	 */
 	public function actionAdmin()
 	{
+
 		$model=new Expenses('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Expenses']))
+
 			$model->attributes=$_GET['Expenses'];
 
 		$this->render('admin',array(
