@@ -18,6 +18,34 @@
         'class' => 'inline-block bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded shadow whitespace-nowrap'
     ]); ?>	
 </div>
+<?php echo CHtml::beginForm(); ?>
+<div class="flex gap-4 mb-4">
+  <!-- From Date -->
+  <div>
+    <label class="block text-sm text-gray-300 mb-1">From Date</label>
+    <?php echo CHtml::textField('Expenses[from_date]', $model->from_date, [
+      'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm',
+      'placeholder' => 'YYYY-MM-DD'
+    ]); ?>
+  </div>
+
+  <!-- To Date -->
+  <div>
+    <label class="block text-sm text-gray-300 mb-1">To Date</label>
+    <?php echo CHtml::textField('Expenses[to_date]', $model->to_date, [
+      'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm',
+      'placeholder' => 'YYYY-MM-DD'
+    ]); ?>
+  </div>
+
+  <!-- Filter Button -->
+  <div class="flex items-end">
+    <?php echo CHtml::submitButton('Filter', [
+      'class' => 'bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded',
+    ]); ?>
+  </div>
+</div>
+
 
 <!-- GridView -->
 <?php $this->widget('zii.widgets.grid.CGridView', array(
@@ -134,3 +162,4 @@
     ),
 )); ?>
 
+<?php echo CHtml::endForm(); ?>

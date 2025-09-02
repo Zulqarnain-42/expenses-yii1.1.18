@@ -17,8 +17,9 @@
  */
 class Expenses extends CActiveRecord
 {
-	public $date_from;
-	public $date_to;
+public $from_date;
+public $to_date;
+
 
 	/**
 	 * @return string the associated database table name
@@ -39,6 +40,8 @@ class Expenses extends CActiveRecord
 			array('category_id, amount, date', 'required'),
 			array('amount', 'length', 'max'=>10),
 			array('description, admin_comment, created_at, updated_at', 'safe'),
+			array('date_from, date_to', 'safe', 'on' => 'search'),
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, category_id, amount, description, date, status, admin_comment, created_at, updated_at', 'safe', 'on'=>'search'),
@@ -103,15 +106,16 @@ class Expenses extends CActiveRecord
 		$criteria->compare('created_at',$this->created_at,true);
 		$criteria->compare('updated_at',$this->updated_at,true);
 
-		if (!empty($this->date_from)) {
-			$criteria->addCondition("date >= :date_from");
-			$criteria->params[':date_from'] = $this->date_from;
-		}
+		if (!empty($this->from_date)) {
+    $criteria->addCondition("date >= :from_date");
+    $criteria->params[':from_date'] = $this->from_date;
+}
 
-		if (!empty($this->date_to)) {
-			$criteria->addCondition("date <= :date_to");
-			$criteria->params[':date_to'] = $this->date_to;
-		}
+if (!empty($this->to_date)) {
+    $criteria->addCondition("date <= :to_date");
+    $criteria->params[':to_date'] = $this->to_date;
+}
+
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

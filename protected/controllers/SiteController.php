@@ -99,10 +99,74 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
-	public function actionDashboard() {
-    	$this->layout = '//layouts/dashboard'; // or any other layout path
-		$this->render('dashboard');
+	public function actionDashboard()
+	{
+		$this->layout = '//layouts/dashboard';
+
+		$userId = Yii::app()->user->id;
+		$isAdmin = Yii::app()->user->role === 'admin';
+
+		$labels = [];
+		$data = [];
+		$totalExpenses = 0;
+
+		if ($isAdmin) {
+			// Admin: Show all categories with total expenses (across all users)
+			$categories = Category::model()->with('expenses')->findAll();
+
+			foreach ($categories as $category) {
+				$labels[] = $category->name;
+
+				$totalAmount = 0;
+				foreach ($category->expenses as $expense) {
+					$amount = (float) $expense->amount;
+					$totalAmount += $amount;
+					$totalExpenses += $amount; // accumulate overall total
+				}
+
+				$data[] = $totalAmount;
+			}
+
+		} else {
+			// Regular user: Only show categories this user has used (based on their expenses)
+			$expenses = Expenses::model()->with('category')->findAllByAttributes([
+				'user_id' => $userId
+			]);
+
+			$categoryTotals = [];
+
+			foreach ($expenses as $expense) {
+				if (!$expense->category) {
+					continue; // Skip if category is missing (data integrity check)
+				}
+
+				$categoryName = $expense->category->name;
+				$amount = (float) $expense->amount;
+
+				if (!isset($categoryTotals[$categoryName])) {
+					$categoryTotals[$categoryName] = 0;
+				}
+
+				$categoryTotals[$categoryName] += $amount;
+				$totalExpenses += $amount; // accumulate overall total
+			}
+
+			foreach ($categoryTotals as $categoryName => $total) {
+				$labels[] = $categoryName;
+				$data[] = $total;
+			}
+		}
+
+		// Pass data to dashboard view (for Chart.js) plus total expenses
+		$this->render('dashboard', [
+			'labels' => json_encode($labels),
+			'data' => json_encode($data),
+			'totalExpenses' => $totalExpenses,
+		]);
 	}
+
+
+
 
 	/**
 	 * Logs out the current user and redirect to homepage.

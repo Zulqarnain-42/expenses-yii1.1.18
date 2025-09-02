@@ -1,24 +1,22 @@
-
-<div class="flex flex-wrap gap-6">
-    <!-- Two Columns with Summary -->
-  <div class="w-full md:w-1/2 grid grid-cols-2 gap-6">
-    <div class="bg-gray-800 rounded-lg shadow p-6">
-      <h3 class="text-lg font-semibold mb-2 text-white">Total Expenses</h3>
-      <p class="text-2xl font-bold text-red-400">$3,200</p>
-    </div>
-    <div class="bg-gray-800 rounded-lg shadow p-6">
-      <h3 class="text-lg font-semibold mb-2 text-white">Remaining Budget</h3>
-      <p class="text-2xl font-bold text-green-400">$800</p>
-    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  
+  <!-- Left Column: Total Expenses Summary -->
+  <div class="bg-gray-800 rounded-lg shadow p-6">
+    <h3 class="text-lg font-semibold mb-2 text-white">Total Expenses</h3>
+    <p class="text-2xl font-bold text-red-400">
+      <?php echo CHtml::encode($totalExpenses); ?>
+    </p>
   </div>
-  <!-- Pie Chart -->
-  <div class="w-full md:w-1/2 bg-gray-800 rounded-lg shadow p-6">
+
+  <!-- Right Column: Pie Chart -->
+  <div class="bg-gray-800 rounded-lg shadow p-6">
     <h2 class="text-xl font-semibold mb-4 text-white">Expenses Breakdown</h2>
     <canvas id="expensesPieChart"></canvas>
   </div>
 
-  
 </div>
+
+<canvas id="expensesPieChart" width="400" height="400"></canvas>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -26,25 +24,23 @@
   const expensesPieChart = new Chart(ctx, {
     type: 'pie',
     data: {
-      labels: ['Rent', 'Groceries', 'Utilities', 'Entertainment'],
+      labels: <?php echo $labels; ?>,
       datasets: [{
         label: 'Expenses',
-        data: [1200, 800, 600, 600],
+        data: <?php echo $data; ?>,
         backgroundColor: [
-          '#ef4444', // red-500
-          '#3b82f6', // blue-500
-          '#fbbf24', // yellow-400
-          '#10b981'  // green-500
+          '#ef4444', '#3b82f6', '#fbbf24', '#10b981',
+          '#8b5cf6', '#ec4899', '#f97316', '#14b8a6'
         ],
         borderWidth: 1,
-        borderColor: '#1f2937', // gray-800
+        borderColor: '#1f2937',
       }]
     },
     options: {
       plugins: {
         legend: {
           labels: {
-            color: 'white' // legend text white for dark bg
+            color: 'white'
           }
         }
       }
