@@ -76,12 +76,22 @@
                         'class' => 'inline-block bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-2 rounded text-sm font-semibold'
                     ],
                 ],
-                'delete' => [
-                    'label' => '🗑️ Delete',
-                    'options' => [
-                        'class' => 'inline-block bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-semibold'
-                    ],
-                ],
+                'delete' => array(
+                    'label' => '🗑️',
+                    'url' => 'Yii::app()->createUrl("users/delete", array("id"=>$data->id))',
+                    'options' => array(
+                        'class' => 'inline-block bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-semibold',
+                        'onclick' => 'if(confirm("Are you sure you want to delete this item?")) {
+                            var form = document.createElement("form");
+                            form.method = "POST";
+                            form.action = this.href;
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        return false;',
+                    ),
+                ),
+
             ],
         ],
     ],

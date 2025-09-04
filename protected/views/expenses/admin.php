@@ -19,31 +19,6 @@
     ]); ?>	
 </div>
 
-<!-- ✅ Date Range Filter Form (AJAX enabled) -->
-<div class="flex flex-col sm:flex-row items-center gap-4 mb-6 bg-gray-900 p-4 rounded-lg shadow">
-    <?php echo CHtml::beginForm('', 'get', ['id' => 'date-filter-form', 'class' => 'flex flex-col sm:flex-row gap-4']); ?>
-
-        <?php echo CHtml::textField('Expenses[date_from]', $model->date_from, [
-            'placeholder' => 'From (YYYY-MM-DD)',
-            'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm w-44'
-        ]); ?>
-
-        <?php echo CHtml::textField('Expenses[date_to]', $model->date_to, [
-            'placeholder' => 'To (YYYY-MM-DD)',
-            'class' => 'bg-gray-800 border border-gray-600 text-white px-3 py-2 rounded text-sm w-44'
-        ]); ?>
-
-        <?php echo CHtml::submitButton('Filter', [
-            'class' => 'bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-5 py-2 rounded shadow'
-        ]); ?>
-
-        <button type="button" id="reset-filter" 
-            class="bg-gray-700 hover:bg-gray-800 text-white font-semibold px-5 py-2 rounded shadow">
-            Reset
-        </button>
-
-    <?php echo CHtml::endForm(); ?>
-</div>
 
 
 <!-- GridView -->
@@ -112,11 +87,23 @@
         ),
         array(
             'name' => 'date',
-            'filter' => false, // Disable filter for date
-            'header' => 'Date',
+            'header' => 'Date Range',
+            'filter' => '
+                <div class="flex flex-col space-y-1 text-sm text-white">
+                    <input type="text" name="Expenses[date_from]" value="' . CHtml::encode($model->date_from) . '" 
+                        placeholder="From (YYYY-MM-DD)"
+                        class="bg-gray-800 border border-gray-600 text-white px-3 py-1 rounded focus:outline-none focus:ring focus:ring-indigo-500 text-sm" />
+
+                    <input type="text" name="Expenses[date_to]" value="' . CHtml::encode($model->date_to) . '" 
+                        placeholder="To (YYYY-MM-DD)"
+                        class="bg-gray-800 border border-gray-600 text-white px-3 py-1 rounded focus:outline-none focus:ring focus:ring-indigo-500 text-sm" />
+                </div>
+            ',
+            'type' => 'raw',
             'headerHtmlOptions' => ['class' => 'px-4 py-2 bg-gray-900 text-left'],
             'htmlOptions' => ['class' => 'px-4 py-2 whitespace-nowrap'],
         ),
+
 		array(
 			'name' => 'user_id',
 			'header' => 'User',
@@ -154,27 +141,21 @@
                 ),
                 'delete' => array(
                     'label' => '🗑️',
-                    'options' => ['class' => 'inline-block bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-semibold'],
+                    'url' => 'Yii::app()->createUrl("expenses/delete", array("id"=>$data->id))',
+                    'options' => array(
+                        'class' => 'inline-block bg-red-600 text-white px-3 py-2 rounded text-sm font-semibold',
+                        'onclick' => 'if(confirm("Are you sure you want to delete this item?")) {
+                            var form = document.createElement("form");
+                            form.method = "POST";
+                            form.action = this.href;
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        return false;',
+                    ),
                 ),
+
             ),
         ),
     ),
 )); ?>
-
-
-<?php
-// ✅ JS for AJAX form binding
-Yii::app()->clientScript->registerScript('date-filter-ajax', "
-    $('#date-filter-form').on('submit', function(e) {
-        e.preventDefault();
-        $.fn.yiiGridView.update('expenses-grid', {
-            data: $(this).serialize()
-        });
-    });
-
-    $('#reset-filter').on('click', function() {
-        $('#date-filter-form')[0].reset();
-        $.fn.yiiGridView.update('expenses-grid', { data: {} });
-    });
-");
-?>

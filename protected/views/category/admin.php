@@ -91,8 +91,20 @@
                 ),
                 'delete' => array(
                     'label' => '🗑️',
-                    'options' => ['class' => 'inline-block bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-semibold'],
+                    'url' => 'Yii::app()->createUrl("category/delete", array("id"=>$data->id))',
+                    'options' => [
+                        'class' => 'inline-block bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded text-sm font-semibold',
+                        'onclick' => 'if(confirm("Are you sure you want to delete this item?")) {
+                            var form = document.createElement("form");
+                            form.method = "POST";
+                            form.action = this.href;
+                            document.body.appendChild(form);
+                            form.submit();
+                        }
+                        return false;'
+                    ],
                 ),
+
             ),
         ),
     ),

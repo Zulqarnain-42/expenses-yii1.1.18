@@ -17,10 +17,9 @@
  */
 class Expenses extends CActiveRecord
 {
-    public $date_from;
-    public $date_to;
 
-
+	public $date_from;
+	public $date_to;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -43,7 +42,7 @@ class Expenses extends CActiveRecord
 
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-            array('category_id, amount, description, date, user_id, status, from_date, to_date', 'safe', 'on'=>'search'),
+            array('category_id, amount, description, date, user_id, status, date_from, date_to', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -106,22 +105,15 @@ class Expenses extends CActiveRecord
 		$criteria->compare('updated_at',$this->updated_at,true);
 
 		if (!empty($this->date_from) && !empty($this->date_to)) {
-            $criteria->addCondition("t.date >= :date_from AND t.date <= :date_to");
-            $criteria->params[':date_from'] = $this->date_from;
-            $criteria->params[':date_to']   = $this->date_to;
-        } elseif (!empty($this->date_from)) {
-            $criteria->addCondition("t.date >= :date_from");
-            $criteria->params[':date_from'] = $this->date_from;
-        } elseif (!empty($this->date_to)) {
-            $criteria->addCondition("t.date <= :date_to");
-            $criteria->params[':date_to'] = $this->date_to;
-        }
+			$criteria->addBetweenCondition('date', $this->date_from, $this->date_to);
+		} elseif (!empty($this->date_from)) {
+			$criteria->addCondition("date >= '{$this->date_from}'");
+		} elseif (!empty($this->date_to)) {
+			$criteria->addCondition("date <= '{$this->date_to}'");
+		}
 
 		return new CActiveDataProvider($this, array(
             'criteria'=>$criteria,
-            'sort'=>array(
-                'defaultOrder'=>'t.date DESC',
-            ),
         ));
 	}
 
